@@ -1,0 +1,54 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.hero-bg {
+    background-image: url(../imgs/banner.jpg);
+    background-size: cover;
+    background-position: center;
+    max-width: 100%;
+}
+
+.d-none {
+    display: none;
+}
+
+.custom-shadow {
+    box-shadow: 0 10px 30px -10px rgba(255, 102, 161, 0.2);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.polaroid {
+    background: white;
+    padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transform: rotate(-2deg);
+}
+
+.polaroid:nth-child(even) {
+    transform: rotate(3deg);
+}
+
+.card-1 {
+    background: linear-gradient(135deg, #F8E8EE 0%, #FFE5EC 100%);
+    background-image: url(../imgs/card-bg-01.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.card-2 {
+    background: linear-gradient(135deg, #EAF7F2 0%, #D0F0E8 100%);
+    background-image: url(../imgs/card-bg-02.png);
+    background-size: cover;
+    background-position: center;
+}
+
+.card-3 {
+    background: linear-gradient(135deg, #FCE5D8 0%, #FFE0C9 100%);
+    background-image: url(../imgs/card-bg-03.png);
+    background-size: cover;
+    background-position: center;
+}

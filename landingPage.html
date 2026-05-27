@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOLLY - Wear your fun, every day</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#FF66A1',
+                        secondary: '#FF8EBC',
+                        accent: '#E9F9F4',
+                        dark: '#1A1A1A',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'xl': '1rem',
+                        '2xl': '1.5rem',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-bg {
+            /* background: linear-gradient(135deg, #FFF5F8 0%, #FFFFFF 100%); */
+            background-image: url(./imgs/banner.jpg);
+            background-size: cover;
+            background-position: center;
+            max-width: 100%;
+        }
+
+        .d-none {
+            display: none;
+        }
+
+        .custom-shadow {
+            box-shadow: 0 10px 30px -10px rgba(255, 102, 161, 0.2);
+        }
+
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .polaroid {
+            background: white;
+            padding: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transform: rotate(-2deg);
+        }
+
+        .polaroid:nth-child(even) {
+            transform: rotate(3deg);
+        }
+
+        .card-1 {
+            background: linear-gradient(135deg, #F8E8EE 0%, #FFE5EC 100%);
+            background-image: url(./imgs/card-bg-01.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-2 {
+            background: linear-gradient(135deg, #EAF7F2 0%, #D0F0E8 100%);
+            background-image: url(./imgs/card-bg-02.png);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .card-3 {
+            background: linear-gradient(135deg, #FCE5D8 0%, #FFE0C9 100%);
+            background-image: url(./imgs/card-bg-03.png);
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800">
+
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-12">
+                <a href="#" class="text-3xl font-black text-primary tracking-tighter">MOLLY</a>
+                <nav class="hidden md:flex items-center gap-8 font-semibold text-gray-600 uppercase text-sm">
+                    <a href="#" class="hover:text-primary transition-colors">Hàng mới</a>
+                    <a href="#" class="hover:text-primary transition-colors">Combo</a>
+                    <a href="#" class="hover:text-primary transition-colors">Bán chạy</a>
+                    <a href="#" class="hover:text-primary transition-colors">Về Molly</a>
+                </nav>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="p-2 text-gray-600 hover:text-primary">
+                    <i class="fa-solid fa-magnifying-glass text-xl"></i>
+                </button>
+                <a href="#"
+                    class="bg-primary text-white px-6 py-2.5 rounded-full font-bold flex items-center gap-2 hover:bg-opacity-90 transition-all custom-shadow">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span class="hidden sm:inline text-sm">Mua ngay</span>
+                </a>
+                <button id="hamburger-btn" class="md:hidden p-2 text-gray-600 hover:text-primary transition-colors"
+                    onclick="toggleMenu()">
+                    <i id="hamburger-icon" class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-4 py-4">
+            <nav class="flex flex-col gap-4 font-semibold text-gray-600 uppercase text-sm">
+                <a href="#" class="hover:text-primary transition-colors py-2 border-b border-gray-50">Hàng mới</a>
+                <a href="#" class="hover:text-primary transition-colors py-2 border-b border-gray-50">Combo</a>
+                <a href="#" class="hover:text-primary transition-colors py-2 border-b border-gray-50">Bán chạy</a>
+                <a href="#" class="hover:text-primary transition-colors py-2">Về Molly</a>
+            </nav>
+        </div>
+    </header>
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('hamburger-icon');
+            menu.classList.toggle('hidden');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        }
+    </script>
+
+    <section class="hero-bg pt-12 pb-20 overflow-hidden">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-12">
+                <div class="lg:w-1/2 space-y-8 text-center lg:text-left">
+                    <h1 class="text-5xl lg:text-7xl font-extrabold leading-tight tracking-tight text-gray-900"
+                        style="text-shadow: 0 1px 4px rgba(255,255,255,0.6);">
+                        Wear your <span class="text-primary italic">fun,</span><br>every day.
+                    </h1>
+                    <p class="text-gray-800 text-lg max-w-md mx-auto lg:mx-0"
+                        style="text-shadow: 0 1px 3px rgba(255,255,255,0.5);">
+                        Thời trang mặc nhà, đi chơi và đi biển vui nhộn, thoải mái cho mọi ngày. ♡
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <button
+                            class="bg-primary text-white px-8 py-4 rounded-full font-bold text-lg flex items-center justify-center gap-2 hover:scale-105 transition-transform">
+                            Khám phá bộ sưu tập <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button
+                            class="bg-dark text-white px-8 py-4 rounded-full font-bold text-lg hover:opacity-80 transition-opacity">
+                            Xem combo giá tốt →
+                        </button>
+                    </div>
+                    <!-- Stats Badges -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4 pt-4">
+                        <div class="bg-white p-3 rounded-2xl flex items-center gap-3 border border-gray-100 shadow-sm">
+                            <div
+                                class="w-10 h-10 bg-emerald-100 text-emerald-500 rounded-full flex items-center justify-center">
+                                <i class="fa-regular fa-face-smile"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="font-bold text-sm">50+</p>
+                                <p class="text-xs text-gray-400">mẫu vui nhộn</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-3 rounded-2xl flex items-center gap-3 border border-gray-100 shadow-sm">
+                            <div
+                                class="w-10 h-10 bg-pink-100 text-pink-500 rounded-full flex items-center justify-center">
+                                <i class="fa-solid fa-shirt"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="font-bold text-sm">2 size</p>
+                                <p class="text-xs text-gray-400">dễ chọn form</p>
+                            </div>
+                        </div>
+                        <div class="bg-white p-3 rounded-2xl flex items-center gap-3 border border-gray-100 shadow-sm">
+                            <div
+                                class="w-10 h-10 bg-cyan-100 text-cyan-500 rounded-full flex items-center justify-center">
+                                <i class="fa-regular fa-star"></i>
+                            </div>
+                            <div class="text-left">
+                                <p class="font-bold text-sm">4.9★</p>
+                                <p class="text-xs text-gray-400">khách yêu thích</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hero Image Area -->
+                <div class="lg:w-1/2 relative">
+                    <img class="d-none" src="https://placehold.co/800x600/FFC0CB/white?text=MOLLY+MODELS"
+                        alt="Molly Models" class="rounded-3xl w-full object-cover shadow-2xl"
+                        onerror="this.src='https://placehold.co/800x600?text=Hero+Image'">
+                    <!-- Floating decorations simulated with SVG -->
+                    <div class="absolute -top-10 -right-10 w-40 h-40 hidden md:block opacity-50">
+                        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M100 20L110 80L170 90L110 100L100 160L90 100L30 90L90 80L100 20Z" fill="#FF66A1" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div
+                class="flex items-center gap-6 p-6 rounded-3xl border border-gray-100 hover:bg-accent/30 transition-colors">
+                <div
+                    class="w-16 h-16 bg-accent rounded-full flex items-center justify-center text-emerald-500 text-2xl">
+                    <i class="fa-solid fa-truck-fast"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">Giao nhanh</h3>
+                    <p class="text-gray-400 text-sm">Ship toàn quốc, nhận hàng nhanh chóng</p>
+                </div>
+            </div>
+            <div
+                class="flex items-center gap-6 p-6 rounded-3xl border border-gray-100 hover:bg-pink-50 transition-colors">
+                <div class="w-16 h-16 bg-pink-50 rounded-full flex items-center justify-center text-primary text-2xl">
+                    <i class="fa-solid fa-shirt"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">Form dễ mặc</h3>
+                    <p class="text-gray-400 text-sm">Dễ chọn size, tôn dáng, mặc thoải mái cả ngày</p>
+                </div>
+            </div>
+            <div
+                class="flex items-center gap-6 p-6 rounded-3xl border border-gray-100 hover:bg-cyan-50 transition-colors">
+                <div class="w-16 h-16 bg-cyan-50 rounded-full flex items-center justify-center text-cyan-500 text-2xl">
+                    <i class="fa-regular fa-face-smile"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-lg">Vibe vui nhộn</h3>
+                    <p class="text-gray-400 text-sm">Thiết kế trẻ trung, màu sắc nổi bật, năng lượng tích cực</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-end mb-10">
+                <h2 class="text-3xl font-black uppercase tracking-tight">Shop by Mood</h2>
+                <a href="#"
+                    class="text-sm font-bold text-gray-500 border-b-2 border-transparent hover:border-primary">Xem tất
+                    cả →</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Category Card 1 -->
+                <div class="group card-1 relative h-72 rounded-3xl bg-[#F8E8EE] overflow-hidden cursor-pointer">
+                    <div class="p-8 relative z-10">
+                        <h3 class="text-2xl font-bold mb-2">Quần short</h3>
+                        <button
+                            class="bg-dark text-white px-4 py-1.5 rounded-full text-xs font-bold group-hover:bg-primary transition-colors">Xem
+                            ngay</button>
+                    </div>
+                    <img class="d-none" src="https://placehold.co/300x300/FF66A1/white?text=Shorts"
+                        class="absolute bottom-4 right-4 w-48 group-hover:scale-110 transition-transform duration-500"
+                        alt="Shorts">
+                </div>
+                <!-- Category Card 2 -->
+                <div class="group card-2  relative h-72 rounded-3xl bg-[#EAF7F2] overflow-hidden cursor-pointer">
+                    <div class="p-8 relative z-10">
+                        <h3 class="text-2xl font-bold mb-2">Đồ bộ unisex</h3>
+                        <button
+                            class="bg-dark text-white px-4 py-1.5 rounded-full text-xs font-bold group-hover:bg-primary transition-colors">Xem
+                            ngay</button>
+                    </div>
+                    <img src="./imgs/card-obj-02.png"
+                        class="absolute bottom-0 right-0 w-56 group-hover:translate-y-[-10px] transition-transform duration-500"
+                        alt="Unisex">
+                </div>
+                <!-- Category Card 3 -->
+                <div class="group card-3 relative h-72 rounded-3xl bg-[#FCE5D8] overflow-hidden cursor-pointer">
+                    <div class="p-8 relative z-10">
+                        <h3 class="text-2xl font-bold mb-2">Combo tiết kiệm</h3>
+                        <button
+                            class="bg-dark text-white px-4 py-1.5 rounded-full text-xs font-bold group-hover:bg-primary transition-colors">Xem
+                            ngay</button>
+                    </div>
+                    <div
+                        class="d-none absolute top-8 right-8 bg-cyan-100 text-cyan-600 font-bold px-3 py-1 rounded-full text-xs">
+                        Tiết kiệm đến 20%</div>
+                    <img class="d-none" src="https://placehold.co/300x300/FF4500/white?text=Combo"
+                        class="absolute bottom-4 right-4 w-48 group-hover:rotate-12 transition-transform duration-500"
+                        alt="Combo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-end mb-10">
+                <h2 class="text-3xl font-black uppercase tracking-tight italic">Best Sellers ✨</h2>
+                <a href="#"
+                    class="text-sm font-bold text-gray-500 border-b-2 border-transparent hover:border-primary">Xem tất
+                    cả →</a>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="group">
+                    <div class="relative bg-gray-50 rounded-3xl overflow-hidden aspect-[4/5] mb-4">
+                        <span
+                            class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase z-10">Best
+                            Seller</span>
+                        <button
+                            class="absolute top-4 right-4 w-8 h-8 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-primary transition-colors z-10">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <img src="./imgs/product1.jpg" alt="Product"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="space-y-2 px-2">
+                        <h3 class="font-bold text-sm text-gray-700">Áo thun MOLLY Bunny Tee</h3>
+                        <p class="text-primary font-extrabold">199.000đ</p>
+                        <div class="flex items-center gap-1.5 pb-2">
+                            <span
+                                class="w-8 h-8 border border-gray-200 rounded flex items-center justify-center text-[10px] font-bold hover:border-primary cursor-pointer">M</span>
+                            <span
+                                class="w-8 h-8 border border-gray-200 rounded flex items-center justify-center text-[10px] font-bold hover:border-primary cursor-pointer">L</span>
+                        </div>
+                        <button
+                            class="w-full bg-primary text-white py-3 rounded-full font-bold text-xs flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all">
+                            <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                        </button>
+                    </div>
+                </div>
+                <!-- Product 2 -->
+                <div class="group">
+                    <div class="relative bg-gray-50 rounded-3xl overflow-hidden aspect-[4/5] mb-4">
+                        <span
+                            class="absolute top-4 left-4 bg-cyan-400 text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase z-10">Unisex</span>
+                        <button
+                            class="absolute top-4 right-4 w-8 h-8 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-primary transition-colors z-10">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <img src="./imgs/product2.jpg" alt="Product"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="space-y-2 px-2">
+                        <h3 class="font-bold text-sm text-gray-700">Áo thun MOLLY Club Tee</h3>
+                        <p class="text-primary font-extrabold">199.000đ</p>
+                        <div class="flex items-center gap-1.5 pb-2">
+                            <span
+                                class="w-8 h-8 border border-gray-200 rounded flex items-center justify-center text-[10px] font-bold hover:border-primary cursor-pointer">M</span>
+                            <span
+                                class="w-8 h-8 border border-gray-200 rounded flex items-center justify-center text-[10px] font-bold hover:border-primary cursor-pointer">L</span>
+                        </div>
+                        <button
+                            class="w-full bg-primary text-white py-3 rounded-full font-bold text-xs flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all">
+                            <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                        </button>
+                    </div>
+                </div>
+                <!-- Product 3 -->
+                <div class="group">
+                    <div class="relative bg-gray-50 rounded-3xl overflow-hidden aspect-[4/5] mb-4">
+                        <span
+                            class="absolute top-4 left-4 bg-secondary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase z-10">New
+                            Drop</span>
+                        <button
+                            class="absolute top-4 right-4 w-8 h-8 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-primary transition-colors z-10">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <img src="./imgs/product3.jpg" alt="Product"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="space-y-2 px-2">
+                        <h3 class="font-bold text-sm text-gray-700">Bộ đồ mặc nhà MOLLY Set</h3>
+                        <p class="text-primary font-extrabold">329.000đ</p>
+                        <div class="flex items-center gap-1.5 pb-2">
+                            <span
+                                class="w-8 h-8 border border-gray-200 rounded flex items-center justify-center text-[10px] font-bold hover:border-primary cursor-pointer">M</span>
+                            <span
+                                class="w-8 h-8 border border-gray-200 rounded flex items-center justify-center text-[10px] font-bold hover:border-primary cursor-pointer">L</span>
+                        </div>
+                        <button
+                            class="w-full bg-primary text-white py-3 rounded-full font-bold text-xs flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all">
+                            <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                        </button>
+                    </div>
+                </div>
+                <!-- Product 4 -->
+                <div class="group">
+                    <div class="relative bg-gray-50 rounded-3xl overflow-hidden aspect-[4/5] mb-4">
+                        <span
+                            class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase z-10">Best
+                            Seller</span>
+                        <button
+                            class="absolute top-4 right-4 w-8 h-8 bg-white/80 backdrop-blur rounded-full flex items-center justify-center text-gray-400 hover:text-primary transition-colors z-10">
+                            <i class="fa-regular fa-heart"></i>
+                        </button>
+                        <img src="./imgs/product4.jpg" alt="Product"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="space-y-2 px-2">
+                        <h3 class="font-bold text-sm text-gray-700">Quần short MOLLY Club</h3>
+                        <p class="text-primary font-extrabold">159.000đ</p>
+                        <div class="flex items-center gap-1.5 pb-2">
+                            <span
+                                class="w-8 h-8 border border-gray-200 rounded flex items-center justify-center text-[10px] font-bold hover:border-primary cursor-pointer">M</span>
+                            <span
+                                class="w-8 h-8 border border-gray-200 rounded flex items-center justify-center text-[10px] font-bold hover:border-primary cursor-pointer">L</span>
+                        </div>
+                        <button
+                            class="w-full bg-primary text-white py-3 rounded-full font-bold text-xs flex items-center justify-center gap-2 hover:bg-opacity-90 transition-all">
+                            <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-12 px-4">
+        <div class="container mx-auto bg-dark rounded-[3rem] p-8 md:p-12 text-white relative overflow-hidden">
+            <!-- Header row -->
+            <div
+                class="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-10 relative z-10 gap-4">
+                <div>
+                    <h2 class="text-4xl font-extrabold uppercase">Mua nhiều<br><span class="text-primary">Tiết kiệm
+                            nhiều</span></h2>
+                    <p class="text-gray-400 mt-2">Combo càng nhiều, giá càng hời!</p>
+                </div>
+                <button
+                    class="bg-white text-dark px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 hover:bg-primary hover:text-white transition-all shrink-0">
+                    Khám phá combo ngay <i class="fa-solid fa-arrow-right-long"></i>
+                </button>
+            </div>
+            <!-- Combo cards grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 relative z-10">
+                <!-- Set 2 -->
+                <div
+                    class="group relative rounded-3xl overflow-hidden cursor-pointer h-72 hover:scale-[1.02] transition-transform duration-300">
+                    <div class="grid grid-cols-2 h-full">
+                        <img src="./imgs/combo-a.jpg" class="w-full h-full object-cover">
+                        <img src="./imgs/combo-b.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+                    <span
+                        class="absolute top-4 right-4 bg-primary text-white font-black text-sm px-3 py-1.5 rounded-full shadow-lg">-5%</span>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <p class="text-white/60 text-xs uppercase tracking-widest font-semibold mb-0.5">Combo</p>
+                        <h4 class="font-black text-2xl leading-none">SET 2</h4>
+                        <p class="text-emerald-400 font-bold mt-1">Chỉ từ <span class="text-xl">378.000đ</span></p>
+                    </div>
+                </div>
+                <!-- Set 3 -->
+                <div
+                    class="group relative rounded-3xl overflow-hidden cursor-pointer h-72 hover:scale-[1.02] transition-transform duration-300">
+                    <div class="grid grid-cols-2 grid-rows-2 h-full">
+                        <img src="./imgs/combo-c.jpg" class="w-full h-full object-cover row-span-2">
+                        <img src="./imgs/combo-d.jpg" class="w-full h-full object-cover">
+                        <img src="./imgs/combo-e.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+                    <span
+                        class="absolute top-4 right-4 bg-primary text-white font-black text-sm px-3 py-1.5 rounded-full shadow-lg">-10%</span>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <p class="text-white/60 text-xs uppercase tracking-widest font-semibold mb-0.5">Combo</p>
+                        <h4 class="font-black text-2xl leading-none">SET 3</h4>
+                        <p class="text-emerald-400 font-bold mt-1">Chỉ từ <span class="text-xl">537.000đ</span></p>
+                    </div>
+                </div>
+                <!-- Set 5 -->
+                <div
+                    class="group relative rounded-3xl overflow-hidden cursor-pointer h-72 hover:scale-[1.02] transition-transform duration-300">
+                    <div class="grid grid-cols-2 grid-rows-2 h-full">
+                        <img src="./imgs/product1.jpg" class="w-full h-full object-cover">
+                        <img src="./imgs/combo-a.jpg" class="w-full h-full object-cover">
+                        <img src="./imgs/combo-f.jpg" class="w-full h-full object-cover">
+                        <img src="./imgs/combo-e.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent"></div>
+                    <span
+                        class="absolute top-4 right-4 bg-primary text-white font-black text-sm px-3 py-1.5 rounded-full shadow-lg">-15%</span>
+                    <div class="absolute bottom-0 left-0 right-0 p-5">
+                        <p class="text-white/60 text-xs uppercase tracking-widest font-semibold mb-0.5">Combo</p>
+                        <h4 class="font-black text-2xl leading-none">SET 5</h4>
+                        <p class="text-emerald-400 font-bold mt-1">Chỉ từ <span class="text-xl">845.000đ</span></p>
+                    </div>
+                </div>
+            </div>
+            <!-- Background effects -->
+            <div class="absolute bottom-0 right-0 p-8 text-primary opacity-10 text-[8rem] leading-none">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-pink-50/30">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2 relative flex justify-center gap-4">
+                    <div class="polaroid">
+                        <img src="./imgs/story1.jpg" class="w-48 h-64 object-cover" alt="Molly Life">
+                        <p class="mt-4 text-center font-bold text-sm">BE YOU, BE MOLLY</p>
+                    </div>
+                    <div class="polaroid mt-8">
+                        <img src="./imgs/story2.jpg" class="w-48 h-64 object-cover" alt="Molly Life">
+                    </div>
+                </div>
+                <div class="lg:w-1/2 space-y-6">
+                    <h2 class="text-3xl font-black uppercase">Brand Story</h2>
+                    <p class="text-gray-600 leading-relaxed">
+                        MOLLY là thương hiệu thời trang dành cho những bạn trẻ yêu thích sự thoải mái, tự do và niềm vui
+                        mỗi ngày.
+                        Chúng mình tin rằng: mặc gì cũng được, miễn là bạn cảm thấy vui vẻ và là chính mình.
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center gap-3 p-3 bg-white rounded-2xl border border-pink-100">
+                            <div
+                                class="w-8 h-8 bg-pink-100 rounded-full flex items-center justify-center text-primary text-xs">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <span class="text-xs font-bold">Màu thương hiệu nổi bật</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-white rounded-2xl border border-cyan-100">
+                            <div
+                                class="w-8 h-8 bg-cyan-100 rounded-full flex items-center justify-center text-cyan-500 text-xs">
+                                <i class="fa-solid fa-face-smile"></i>
+                            </div>
+                            <span class="text-xs font-bold">Họa tiết vui nhộn</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-white rounded-2xl border border-orange-100">
+                            <div
+                                class="w-8 h-8 bg-orange-100 rounded-full flex items-center justify-center text-orange-500 text-xs">
+                                <i class="fa-solid fa-shirt"></i>
+                            </div>
+                            <span class="text-xs font-bold">Form thoải mái</span>
+                        </div>
+                        <div class="flex items-center gap-3 p-3 bg-white rounded-2xl border border-emerald-100">
+                            <div
+                                class="w-8 h-8 bg-emerald-100 rounded-full flex items-center justify-center text-emerald-500 text-xs">
+                                <i class="fa-solid fa-tag"></i>
+                            </div>
+                            <span class="text-xs font-bold">Giá phù hợp TMĐT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white pt-20 pb-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 border-b border-white/10 pb-12 mb-10">
+                <div class="space-y-6">
+                    <h2 class="text-4xl font-black text-primary tracking-tighter">MOLLY</h2>
+                    <p class="text-gray-400 text-sm">Wear your fun, every day.<br>© 2024 MOLLY. All rights reserved.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6 text-primary uppercase text-xs tracking-widest">Kết nối với Molly</h4>
+                    <div class="space-y-4">
+                        <a href="https://shopee.vn/mollyfashion_official" target="_blank"
+                            class="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors">
+                            <div
+                                class="w-8 h-8 bg-orange-600/20 rounded-lg flex items-center justify-center text-orange-600">
+                                <i class="fa-solid fa-shopping-bag"></i>
+                            </div>
+                            Shopee
+                        </a>
+                        <a href="https://www.tiktok.com/@mollyfashion" target="_blank"
+                            class="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors">
+                            <div class="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center text-white"><i
+                                    class="fa-brands fa-tiktok"></i></div>
+                            TikTok Shop
+                        </a>
+                        <a href="https://www.facebook.com/mollyfashions1/" target="_blank"
+                            class="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors">
+                            <div
+                                class="w-8 h-8 bg-blue-600/20 rounded-lg flex items-center justify-center text-blue-600">
+                                <i class="fa-brands fa-facebook"></i>
+                            </div>
+                            Facebook
+                        </a>
+                        <a href="https://www.instagram.com/mollyfashion.official" target="_blank"
+                            class="flex items-center gap-3 text-sm text-gray-400 hover:text-white transition-colors">
+                            <div
+                                class="w-8 h-8 bg-pink-600/20 rounded-lg flex items-center justify-center text-pink-600">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            Instagram
+                        </a>
+                    </div>
+                </div>
+                <div class="md:col-span-2">
+                    <h4 class="font-bold mb-6 uppercase text-xs tracking-widest">Đăng ký nhận tin</h4>
+                    <div class="flex gap-2">
+                        <input type="email" placeholder="Nhập email của bạn"
+                            class="bg-white/10 border-none rounded-full px-6 py-3 flex-1 text-sm focus:ring-2 focus:ring-primary outline-none">
+                        <button class="bg-primary p-3 rounded-full hover:scale-105 transition-transform">
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <p class="text-[10px] text-gray-500 mt-4 italic">* Đừng bỏ lỡ các đợt giảm giá và mẫu mới nhất từ
+                        nhà Molly nhé!</p>
+                </div>
+                <div class="text-center text-xs text-gray-600">
+                    Thiết kế với ❤️ bởi MOLLY Team
+                </div>
+            </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="fixed bottom-8 right-8 w-12 h-12 bg-primary text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all z-40">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+</body>
+
+</html>
